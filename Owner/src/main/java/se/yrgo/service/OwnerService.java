@@ -8,5 +8,5 @@ import java.util.List;
 public interface OwnerService {
     List<OwnerEntity> getAllOwners();
 
-    public OwnerEntity createOwner(OwnerEntity user);
+    public OwnerEntity createOwner(OwnerEntity owner);
 }

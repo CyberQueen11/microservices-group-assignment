@@ -1,9 +1,6 @@
 package se.yrgo.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class OwnerEntity {
@@ -12,6 +9,9 @@ public class OwnerEntity {
     private Long id;
     private String name;
     private String email;
+    @ManyToOne
+    @JoinColumn(name = "address_id")
+    private AddressEntity address;
 
     // Getters and setters
 
@@ -37,5 +37,13 @@ public class OwnerEntity {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public AddressEntity getAddress() {
+        return address;
+    }
+
+    public void setAddress(AddressEntity address) {
+        this.address = address;
     }
 }
