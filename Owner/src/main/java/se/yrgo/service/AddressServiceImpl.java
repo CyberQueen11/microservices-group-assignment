@@ -23,4 +23,22 @@ public class AddressServiceImpl implements AddressService {
         // Additional business logic or validation can be added here
         return addressRepository.save(address);
     }
+
+    @Override
+    public boolean deleteAddress(AddressEntity address) {
+        if (addressRepository.existsById(address.getId())) {
+            addressRepository.deleteById(address.getId());
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean updateAddress(AddressEntity address) {
+        if (addressRepository.existsById(address.getId())) {
+            addressRepository.save(address);
+            return true;
+        }
+        return false;
+    }
 }
