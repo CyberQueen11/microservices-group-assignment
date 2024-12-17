@@ -22,4 +22,23 @@ public class PurchaseServiceImpl implements PurchaseService {
     public void createPurchase(Purchase purchase) {
         purchaseRepository.save(purchase);
     }
+
+    @Override
+    public boolean deletePurchase(Purchase purchase) {
+        if (purchaseRepository.existsById(purchase.getId())) {
+            purchaseRepository.deleteById(purchase.getId());
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean updatePurchase(Purchase purchase) {
+        if (purchaseRepository.existsById(purchase.getId())) {
+            purchaseRepository.save(purchase);
+            return true;
+        }
+        return false;
+    }
+
 }

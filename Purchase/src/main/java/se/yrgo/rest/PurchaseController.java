@@ -29,4 +29,24 @@ public class PurchaseController {
         return ResponseEntity.ok("Purchase created successfully");
     }
 
+    @PutMapping("/update-purchase")
+    public ResponseEntity<String> updatePurchase(@RequestBody Purchase purchase) {
+        boolean isUpdated = purchaseService.updatePurchase(purchase);
+        if (isUpdated) {
+            return ResponseEntity.ok("Purchase updated successfully");
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @DeleteMapping("/delete-purchase")
+    public ResponseEntity<String> deletePurchase(@RequestBody Purchase purchase) {
+        boolean isDeleted = purchaseService.deletePurchase(purchase);
+        if (isDeleted) {
+            return ResponseEntity.ok("Purchase deleted successfully");
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
 }
