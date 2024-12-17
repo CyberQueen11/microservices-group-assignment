@@ -22,4 +22,22 @@ public class OwnerServiceImpl implements OwnerService {
         // Additional business logic or validation can be added here
         return ownerRepository.save(owner);
     }
+
+    @Override
+    public boolean deleteOwner(OwnerEntity owner) {
+        if (ownerRepository.existsById(owner.getId())) {
+            ownerRepository.deleteById(owner.getId());
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean updateOwner(OwnerEntity owner) {
+        if (ownerRepository.existsById(owner.getId())) {
+            ownerRepository.save(owner);
+            return true;
+        }
+        return false;
+    }
 }

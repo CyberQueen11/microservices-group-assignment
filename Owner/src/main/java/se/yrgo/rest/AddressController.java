@@ -31,4 +31,24 @@ public class AddressController {
         AddressEntity createdAddress = addressService.registerAddress(address);
         return new ResponseEntity<>(createdAddress, HttpStatus.CREATED);
     }
+
+    @PutMapping("/update-address")
+    public ResponseEntity<String> updateOwner(@RequestBody AddressEntity address) {
+        boolean isUpdated = addressService.updateAddress(address);
+        if (isUpdated) {
+            return ResponseEntity.ok("Address updated successfully");
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @DeleteMapping("/delete-address")
+    public ResponseEntity<String> deleteOwner(@RequestBody AddressEntity address) {
+        boolean isDeleted = addressService.deleteAddress(address);
+        if (isDeleted) {
+            return ResponseEntity.ok("Address deleted successfully");
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }

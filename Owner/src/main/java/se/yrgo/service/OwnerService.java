@@ -9,4 +9,8 @@ public interface OwnerService {
     List<OwnerEntity> getAllOwners();
 
     public OwnerEntity createOwner(OwnerEntity owner);
+
+    boolean deleteOwner(OwnerEntity owner);
+
+    boolean updateOwner(OwnerEntity owner);
 }
