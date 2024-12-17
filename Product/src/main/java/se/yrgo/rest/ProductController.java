@@ -11,7 +11,7 @@ import se.yrgo.service.ProductService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/products")
+@RequestMapping("/product")
 public class ProductController {
     private final ProductService productService;
 
@@ -29,5 +29,11 @@ public class ProductController {
     public ResponseEntity<Product> createProduct(@RequestBody Product product) {
         Product createdProduct = productService.createProduct(product);
         return new ResponseEntity<>(createdProduct, HttpStatus.CREATED);
+    }
+
+    @PostMapping("/products")
+    public ResponseEntity<List<Product>> createProducts(@RequestBody List<Product> products) {
+        List<Product> createdProducts = productService.createProducts(products);
+        return new ResponseEntity<>(createdProducts, HttpStatus.CREATED);
     }
 }
