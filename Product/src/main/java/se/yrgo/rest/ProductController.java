@@ -11,7 +11,7 @@ import se.yrgo.service.ProductService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/products")
+@RequestMapping("/")
 public class ProductController {
     private final ProductService productService;
 

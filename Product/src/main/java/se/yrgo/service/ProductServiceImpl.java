@@ -10,14 +10,12 @@ import java.util.List;
 public class ProductServiceImpl implements ProductService {
     private final ProductRepository productRepository;
 
-    // Inject the ProductRepository through constructor injection
     public ProductServiceImpl(ProductRepository productRepository) {
         this.productRepository = productRepository;
     }
 
     @Override
     public List<Product> getAllProducts() {
-        // Implement the logic to retrieve all products from the repository
         return productRepository.findAll();
     }
 
