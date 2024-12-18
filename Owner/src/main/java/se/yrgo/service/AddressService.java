@@ -10,4 +10,8 @@ public interface AddressService {
     List<AddressEntity> getAllAddresses();
 
     public AddressEntity registerAddress(AddressEntity address);
+
+    boolean deleteAddress(AddressEntity address);
+
+    boolean updateAddress(AddressEntity address);
 }

@@ -23,4 +23,28 @@ public class ProductServiceImpl implements ProductService {
     public Product createProduct(Product product) {
         return productRepository.save(product);
     }
+
+    @Override
+    public List<Product> createProducts(List<Product> products) {
+        return productRepository.saveAll(products);
+    }
+
+    @Override
+    public boolean updatePurchase(Product purchase) {
+        if (productRepository.existsById(purchase.getId())) {
+            productRepository.save(purchase);
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean deletePurchase(Product purchase) {
+        if (productRepository.existsById(purchase.getId())) {
+            productRepository.deleteById(purchase.getId());
+            return true;
+        }
+        return false;
+    }
+
 }

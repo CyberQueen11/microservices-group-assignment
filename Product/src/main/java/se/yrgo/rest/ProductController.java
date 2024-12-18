@@ -11,7 +11,7 @@ import se.yrgo.service.ProductService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/product")
 public class ProductController {
     private final ProductService productService;
 
@@ -20,14 +20,40 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @GetMapping
+    @GetMapping("getAll")
     public List<Product> getAllProducts() {
         return productService.getAllProducts();
     }
 
-    @PostMapping
+    @PostMapping("insertOne")
     public ResponseEntity<Product> createProduct(@RequestBody Product product) {
         Product createdProduct = productService.createProduct(product);
         return new ResponseEntity<>(createdProduct, HttpStatus.CREATED);
+    }
+
+    @PostMapping("/insertMany")
+    public ResponseEntity<List<Product>> createProducts(@RequestBody List<Product> products) {
+        List<Product> createdProducts = productService.createProducts(products);
+        return new ResponseEntity<>(createdProducts, HttpStatus.CREATED);
+    }
+
+    @PutMapping("/update")
+    public ResponseEntity<String> updatePurchase(@RequestBody Product product) {
+        boolean isUpdated = productService.updatePurchase(product);
+        if (isUpdated) {
+            return ResponseEntity.ok("Product updated successfully");
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @DeleteMapping("/delete")
+    public ResponseEntity<String> deletePurchase(@RequestBody Product product) {
+        boolean isDeleted = productService.deletePurchase(product);
+        if (isDeleted) {
+            return ResponseEntity.ok("Product deleted successfully");
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 }

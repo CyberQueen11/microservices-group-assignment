@@ -30,4 +30,24 @@ public class OwnerController {
         OwnerEntity createdOwner = ownerService.createOwner(owner);
         return new ResponseEntity<>(createdOwner, HttpStatus.CREATED);
     }
+
+    @PutMapping("/update-owner")
+    public ResponseEntity<String> updateOwner(@RequestBody OwnerEntity owner) {
+        boolean isUpdated = ownerService.updateOwner(owner);
+        if (isUpdated) {
+            return ResponseEntity.ok("Owner updated successfully");
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @DeleteMapping("/delete-owner")
+    public ResponseEntity<String> deleteOwner(@RequestBody OwnerEntity owner) {
+        boolean isDeleted = ownerService.deleteOwner(owner);
+        if (isDeleted) {
+            return ResponseEntity.ok("Owner deleted successfully");
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }
