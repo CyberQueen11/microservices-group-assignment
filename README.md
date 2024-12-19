@@ -41,3 +41,23 @@ It is possible to use all methods in the CRUD format\
 create, read, update and delete.
 
 
+## Purchase
+Navigate to the purchase directory and run this command:
+```
+mvn clean spring-boot:run
+```
+This will start the microservice on http://localhost:8082
+
+#### API endpoints:
+get all purchases: GET http://localhost:8082/purchases \
+post new purchase: POST http://localhost:8082/purchases/create-purchase \
+update purchase: PUT http://localhost:8082/purchases/update-purchase \
+delete purchase: DELETE http://localhost:8082/purchases/delete-purchase
+
+When posting a new purchase, the body of the request should be in JSON format, like the example below:
+```
+{
+    "productId": 1,  
+    "ownerId": 2    
+}
+```
