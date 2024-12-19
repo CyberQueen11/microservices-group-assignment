@@ -53,17 +53,17 @@ Navigate to the Owner directory and run command mvn clean spring-boot:run
 You can then access it at the following end points:
 
 #### Addresses
-Get all addresses: GET http://localhost:8083/addresses
-Create a new address: POST http://localhost:8083/addresses
-Update an address: UPDATE http://localhost:8083/update-address
-Delete an address: DELETE http://localhost:8083/delete-address
+Get all addresses: GET http://localhost:8083/addresses\
+Create a new address: POST http://localhost:8083/addresses \
+Update an address: UPDATE http://localhost:8083/update-address \
+Delete an address: DELETE http://localhost:8083/delete-address \
 
 
 #### Owners
-Get all owners: GET http://localhost:8083/owners
-Create a new owner: POST http://localhost:8083/owners
-Update an owner: UPDATE http://localhost:8083/update-address
-Delete an owner: DELETE http://localhost:8083/delete-address
+Get all owners: GET http://localhost:8083/owners \
+Create a new owner: POST http://localhost:8083/owners \
+Update an owner: UPDATE http://localhost:8083/update-address \
+Delete an owner: DELETE http://localhost:8083/delete-address 
 
 Example for a owner post request: 
 ```
