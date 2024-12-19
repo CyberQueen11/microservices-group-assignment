@@ -48,11 +48,11 @@ When posting a new purchase, the body of the request should be in JSON format, l
 }
 ```
 
-Owner
+## Owner
 Navigate to the Owner directory and run command mvn clean spring-boot:run
 You can then access it at the following end points:
 
-Addresses
+#### Addresses
 Get all addresses: GET http://localhost:8083/addresses
 Create a new address: POST http://localhost:8083/addresses
 Update an address: UPDATE http://localhost:8083/update-address
