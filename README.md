@@ -27,20 +27,6 @@ Example for a json body request:\
         "price": 18000.25
     }
 
-
-#### FrontEnd
-In another terminal you should be standing under the frontend folder and run these commands in order.
-
-    npm install
-    npm run build
-    npm run dev
-
-And then go into this link: http://localhost:8084/ \
-There is only data in the product page.\
-It is possible to use all methods in the CRUD format\
-create, read, update and delete.
-
-
 ## Purchase
 Navigate to the purchase directory and run this command:
 ```
@@ -61,3 +47,51 @@ When posting a new purchase, the body of the request should be in JSON format, l
     "ownerId": 2    
 }
 ```
+
+Owner
+Navigate to the Owner directory and run command mvn clean spring-boot:run
+You can then access it at the following end points:
+
+Addresses
+Get all addresses: GET http://localhost:8083/addresses
+Create a new address: POST http://localhost:8083/addresses
+Update an address: UPDATE http://localhost:8083/update-address
+Delete an address: DELETE http://localhost:8083/delete-address
+
+
+#### Owners
+Get all owners: GET http://localhost:8083/owners
+Create a new owner: POST http://localhost:8083/owners
+Update an owner: UPDATE http://localhost:8083/update-address
+Delete an owner: DELETE http://localhost:8083/delete-address
+
+Example for a owner post request: 
+```
+curl -X POST http://localhost:8083/owners \
+-H "Content-Type: application/json" \
+-d '{
+  "name": "Bob Odenkirk",
+  "email": "bob@example.com",
+  "address": {
+    "id": 1,
+    "street": "123 Main St",
+    "city": "New York",
+    "postalCode": "10001"
+  }
+}
+```
+If you are using HTTPie or Bruno, you can use the following JSON syntax to post those values.
+
+
+## FrontEnd
+In another terminal you should be standing under the frontend folder and run these commands in order.
+
+    npm install
+    npm run build
+    npm run dev
+
+And then go into this link: http://localhost:8084/ \
+There is only data in the product page.\
+It is possible to use all methods in the CRUD format\
+create, read, update and delete.
+
