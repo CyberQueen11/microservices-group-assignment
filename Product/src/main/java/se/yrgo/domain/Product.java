@@ -66,4 +66,9 @@ public class Product {
     public void setWeight(double weight) {
         this.weight = weight;
     }
+
+    @Override
+    public String toString() {
+        return "Product: " + name + " (ID: " + id + ") is " + age + " years old, of " + ethnicity + " ethnicity, weighs " + weight + " kg, and costs $" + price + ".";
+    }
 }
